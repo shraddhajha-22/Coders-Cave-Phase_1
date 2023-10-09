@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online code  editor</title>
+    <link rel="stylesheet" href="editor.css">
+    <script src="https://kit.fontawesome.com/1e2b3f1dcc.js" crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div class="mainarea">
+        <div class="editors">
+            <h2>HTML</h2>
+            <label><i class="fa-brands fa-html5"></i></label>
+            <textarea id="html" placeholder="HTML"></textarea>
+        </div>
+        <div class="editors">
+            <h2>CSS</h2>	
+            <label><i class="fa-brands fa-css3-alt"></i></label>		
+            <textarea id="css" placeholder="CSS"></textarea>
+        </div>
+        <div class="editors">
+        <h2>Javascript</h2>
+            <label><i class="fa-brands fa-js"></i>JavaScript</label>
+            <textarea id="js" placeholder="Javascript"></textarea>
+        </div>
+    </div>
+    <div class="output">
+    <h1>Output</h1>
+    <label><i class="fa-solid fa-play"></i></label>
+    <iframe id="code"></iframe>
+    </div>
+    <script>
+        function initialise(){
+         
+            var html=document.getElementById("html");
+            var css=document.getElementById("css");
+            var js=document.getElementById("js");
+            var code=document.getElementById("code").contentWindow.document;
+            
+             
+            document.body.onkeyup=function(){
+                code.open();
+                var content=html.value+"<stle>"+css.value+"</style><script>"+js.value+"<\/script>";
+                code.write(content);
+                code.close();
+            }
+        }
+        initialise();
+    </script>
+</body>
+</html>
